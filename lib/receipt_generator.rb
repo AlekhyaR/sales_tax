@@ -1,12 +1,12 @@
 class ReceiptGenerator
-  def generator(items_list, total_taxable_amount)
-    total = 0
+  def generate(items_list, total_taxable_amount)
+    total_cost = 0
     items_list.each do |item|
-      puts "#{item.quantity}, #{item.name}, #{format_number_to_floating_point(item.price)}\n"
+      puts "#{item.quantity}, #{item.name}, #{item.type}, #{format_number_to_floating_point(item.price)}\n"
       total_cost += item.price
     end
 
-    puts "\nTaxable Amonut: #{format_number_to_floating_point(total_taxable_amount)}"
+    puts "\nTaxable Amount: #{format_number_to_floating_point(total_taxable_amount)}"
     puts "Total: #{format_number_to_floating_point(total_cost)}"
   end
 
