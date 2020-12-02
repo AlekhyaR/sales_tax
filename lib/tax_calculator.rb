@@ -2,9 +2,9 @@ require 'bigdecimal'
 
 class TaxCalculator
   IMPORTED = 'imported'
-  IMPORT_DUTY_TAX_VALUE = (1/BigDecimal.new(20)).freeze
-  BASIC_SALES_TAX_VALUE = (1/BigDecimal.new(10)).freeze
-  ROUND_OFF_TO_A_NUMBER_TO = (1/BigDecimal.new(20)).freeze
+  IMPORT_DUTY_TAX_VALUE = (1/BigDecimal(20)).freeze
+  BASIC_SALES_TAX_VALUE = (1/BigDecimal(10)).freeze
+  ROUND_OFF_TO_A_NUMBER_TO = (1/BigDecimal(20)).freeze
   TYPE_OF_GOODS_EXEMPTED_UNDER_TAX = %w{book food medicine}
 
   def initialize(item)

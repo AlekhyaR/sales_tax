@@ -13,7 +13,7 @@ class ShoppingCart
 
     @items_list.each do |item|
       item_price_including_tax, total_sales_tax_on_item = tax_calculator.calculate_tax(item.reject { |k,v| k == :quantity})
-      total_taxable_amount+ = apply_tax_for_n_items_of_a_product(total_sales_tax_on_item, item.quantity)
+      total_taxable_amount += apply_tax_for_n_items_of_a_product(total_sales_tax_on_item, item.quantity)
       total_cost_of_a_product = total_cost_for_n_items(item_price_including_tax * item.quantity)
       items_list_with_price_including_tax << LineItem.new(item.name, total_cost_of_a_product, item.type, item.quantity)
     end
