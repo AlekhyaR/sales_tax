@@ -1,10 +1,9 @@
 class LineItem
-  attr_reader :name, :price, :type, :quantity
-  
-  def initialize(name, price, type, quantity)
+  attr_reader :name, :price, :quantity
+
+  def initialize(name, price, quantity)
     @name = name
     @price = price
-    @type = type
     @quantity = quantity
   end
   

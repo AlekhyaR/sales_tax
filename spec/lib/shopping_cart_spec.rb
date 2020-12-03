@@ -14,12 +14,12 @@ end
 
 def purchase_receipt
   <<~PURCHASE_DETAILS
-    1, imported bottle of perfume, cosmetic, 32.19
-    1, bottle of perfume, cosmetic, 20.89
-    1, packet of headache pills, medicine, 9.75
-    1, imported box of chocolates, food, 11.85
+    1, imported bottle of perfume, 32.19
+    1, bottle of perfume, 20.89
+    1, packet of headache pills, 9.75
+    1, imported box of chocolates, 11.85
 
-    Taxable Amount: 6.7
+    Sales Taxes: 6.7
     Total: 74.68
   PURCHASE_DETAILS
 end

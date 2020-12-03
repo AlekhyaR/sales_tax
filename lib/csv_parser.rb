@@ -1,19 +1,22 @@
 require 'csv'
 
 class CsvParser
-  attr_reader :file_name
+  attr_reader :filename
 
-  def initialize(file_name)
-    @file_name = file_name
+  def initialize(filename)
+    @filename = filename
   end
 
   def read
     row_details = []
-    CSV.foreach(file_name, headers: true, 
-                           header_converters: -> (value) {value.strip},
-                           converters: -> (value) {value.strip}) do |row|
-      row_details << LineItem.new(row['Product'], BigDecimal(row['Price']), row['Type'], row['Quantity'].to_i)
+
+    CSV.foreach(filename, headers: true,
+                          header_converters: ->(value) { value.strip },
+                          converters: ->(value) { value.strip }) do |row|
+
+      row_details << LineItem.new(row['Product'], BigDecimal(row['Price']), row['Quantity'].to_i)
     end
+
     row_details
   end
 

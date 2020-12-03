@@ -6,7 +6,9 @@ class TaxCalculator
   IMPORT_DUTY_TAX_VALUE = (1/BigDecimal(20)).freeze
   BASIC_SALES_TAX_VALUE = (1/BigDecimal(10)).freeze
   ROUND_OFF_TO_A_NUMBER_TO = (1/BigDecimal(20)).freeze
-  TYPE_OF_GOODS_EXEMPTED_UNDER_TAX = %w{book food medicine}
+  ITEMS_EXEMPT_FROM_BASIC_SALES_TAX = { books: ['book'],
+                                        food: %w[chocolate chocolates],
+                                        medical_products: ['pills'] }.freeze
 
   def calculate_tax(item)
     total_sales_tax_on_item = calculate_sales_tax(item)
@@ -24,6 +26,10 @@ class TaxCalculator
     BigDecimal(0)
   end
 
+  def basic_sales_tax_is_applicable?(name)
+    !ITEMS_EXEMPT_FROM_BASIC_SALES_TAX.values.flatten.any? { |word| name.include?(word) }
+  end
+
   def calculate_sales_tax(item)
     basic_sales_tax = calculate_basic_sales_tax(item)
     import_duty_sales_tax = calculate_import_duty_tax(item)
@@ -31,7 +37,7 @@ class TaxCalculator
   end
 
   def calculate_basic_sales_tax(item)
-    return zero_tax_imposed if TYPE_OF_GOODS_EXEMPTED_UNDER_TAX.include?(item.type)
+    return zero_tax_imposed unless basic_sales_tax_is_applicable?(item.name)
     round_up_to_the_nearest_number(item.price * BASIC_SALES_TAX_VALUE)
   end
 

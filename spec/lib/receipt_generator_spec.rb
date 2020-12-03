@@ -8,21 +8,21 @@ describe ReceiptGenerator do
 
         receipt_generator = ReceiptGenerator.new
         
-        expect{ receipt_generator.generate(line_items,total_taxable_amount) }.to output(purchase_receipt).to_stdout
+        expect{ receipt_generator.generate(line_items,total_taxable_amount) }.to output(receipt_summary).to_stdout
       end
     end
   end
 end
 
 
-def purchase_receipt
+def receipt_summary
   <<~PURCHASE_DETAILS
-    1, imported bottle of perfume, cosmetic, 27.99
-    1, bottle of perfume, cosmetic, 18.99
-    1, packet of headache pills, medicine, 9.75
-    1, imported box of chocolates, food, 11.25
-
-    Taxable Amount: 6.7
+    1, imported bottle of perfume, 27.99
+    1, bottle of perfume, 18.99
+    1, packet of headache pills, 9.75
+    1, imported box of chocolates, 11.25
+    
+    Sales Taxes: 6.7
     Total: 67.98
   PURCHASE_DETAILS
 end

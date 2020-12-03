@@ -1,4 +1,4 @@
-Quantity, Product, Type, Price
-1, metaProgramming in ruby, book, 12.49
-1, music cd, disk,14.99
-1, chocolate bar, food, 0.85
+Quantity, Product, Price
+1, book, 12.49
+1, music CD, 14.99
+1, chocolate bar, 0.85
