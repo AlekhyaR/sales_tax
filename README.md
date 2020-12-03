@@ -6,19 +6,16 @@ Write an application that prints out the receipt details for these shopping bask
 
 Proper architecture design is important. Each row in the input represents a line item of the receipt.
 
-sales tax - 10% - all goods, except books, food & medical products
-Import duty —— 5% - imported goods 
-sales tax
-
-1. How do you identity imported goods?
-2. How do you identify what type of product it is?
-3. first calculate 10% of goods price
-4. calculate imported sales tax 
-5. print receipt pass array of values as argument -> output should be csv
-6. each row represents line item 
-7. Receipt contains all items, their prices(including taxes)
-8. finishing with total cost of the items and total amount of taxes paid
-
+Initially dividing the task into subtask at given point of time.
+1. Identify imported goods, should return boolean
+2. Identify good type and exempt from basic sales tax
+3. Calculate 10% of goods price and add it to price
+4. Calculate imported duty sales tax
+5. To read Csv file check supporting gem
+6. Save the inputs to one folder, to use it in executing the program
+7. Print receipt pass array of values as argument -> Print standard out as output
+8. Each row represents lineitem, store each item as line items
+9. Receipt contains all items, their prices(including taxes), output Sales taxes and total amount
 
 ## About
 
