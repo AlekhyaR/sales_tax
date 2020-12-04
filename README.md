@@ -12,7 +12,7 @@ Initially dividing the task into subtask at given point of time.
 3. Calculate 10% of goods price and add it to price
 4. Calculate imported duty sales tax
 5. To read Csv file check supporting gem
-6. Save the inputs to one folder, to use it in executing the program
+6. Save inputs csv files to one folder
 7. Print receipt pass array of values as argument -> Print standard out as output
 8. Each row represents lineitem, store each item as line items
 9. Receipt contains all items, their prices(including taxes), output Sales taxes and total amount
